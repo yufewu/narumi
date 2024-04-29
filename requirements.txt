@@ -1,0 +1,6 @@
+# Python libraries
+numpy
+matplotlib
+nmrglue
+scipy
+dotenv
