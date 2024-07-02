@@ -33,7 +33,7 @@
 /*	Name		Date		Modification:		*/
 /*	jab		19950921	created			*/
 /*	ge		20091117	PL->PLW			*/
-/*	yuwu	20240117	allow user to enter reference pulse			*/
+/*	yuwu		20240117	allow user to enter reference pulse			*/
 /****************************************************************/
 /*
 $Id:$
@@ -53,8 +53,8 @@ double value, length, ref_atten, atten, ref_freq, freq, power;
 //FETCHPAR("P 1", &ref_length)
 //FETCHPAR("PLW 1", &ref_power)
 
-GETFLOAT("Please enter the reference pulse length in us (the one you are using):", ref_length)
-GETFLOAT("Please enter the reference pulse power in W (the one you are using):", ref_power)
+GETFLOAT("Please enter the length of reference 90 degree pulse (in us):", ref_length)
+GETFLOAT("Please enter the power of reference pulse (in W):", ref_power)
 freq   = 0;
 length = 0;
 atten  = 0;
