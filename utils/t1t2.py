@@ -12,15 +12,21 @@ def read_t1t2_report(dir_report):
             while(report_lines[j] != '\n'):
                 line = report_lines[j].split()
                 peak[0].append(topspin_to_normal(line[1]))
-                peak[1].append(float(line[2]))
+                if peak[1]:
+                    peak[1].append(float(line[2])/peak[1][0])
+                else: 
+                    peak[1].append(float(line[2]))
                 j = j+1
+            peak[1][0] = 1
             reports.append(peak)
     
     return reports
 
 
 def topspin_to_normal(value):
-    if value.endswith('u'):
+    if value.endswith('n'):
+        return float(value[:-2])*1e-9
+    elif value.endswith('u'):
         return float(value[:-2])*1e-6
     elif value.endswith('m'):
         return float(value[:-2])*1e-3
@@ -75,14 +81,13 @@ class T1t2Report:
 
 def main():
     import os
-    from dotenv import load_dotenv
 
     # define data location
-    PREFIX = 
-    LIB = 
-    EXPNAME = 
-    EXPNO = 
-    procno = 
+    PREFIX = 'C://Bruker//TopSpin4.1.4//data'
+    LIB = 'SILP'
+    EXPNAME = '240713_SILPGB_13CFA_3p2mm_HX700'
+    EXPNO = '12'
+    procno = '1'
 
 
     dir_exp = os.path.join(PREFIX, LIB, EXPNAME)

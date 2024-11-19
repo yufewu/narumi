@@ -3,4 +3,4 @@ numpy
 matplotlib
 nmrglue
 scipy
-dotenv
+python-dotenv

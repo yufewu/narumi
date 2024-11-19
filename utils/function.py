@@ -15,6 +15,15 @@ def redor_bessel(max_order):
         return redor_predict
     return calculator
 
+def ctdrenar():
+    from numpy import cos
+    from scipy.constants import pi
+
+    def calculator(theta, z):
+        return 6/5 * z * (1+cos(2*theta*pi/180))  # z = (d*t)^2
+    return calculator
+
+
 
 def redor_threehalf():
     from scipy.special import jv
